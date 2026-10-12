@@ -1,0 +1,3 @@
+import { createFileRoute } from '@tanstack/react-router';
+import { WorkloadPage } from '@/components/workload-page';
+export const Route=createFileRoute('/workload')({head:()=>({meta:[{title:'Workload — TaskPilot'},{name:'description',content:'Compare active workloads and preview team reassignments.'},{property:'og:title',content:'Workload — TaskPilot'},{property:'og:description',content:'Compare active workloads and preview team reassignments.'},{property:'og:type',content:'website'},{name:'twitter:card',content:'summary_large_image'}]}),component:WorkloadPage});

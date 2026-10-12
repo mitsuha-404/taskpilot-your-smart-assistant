@@ -1,0 +1,3 @@
+import { createFileRoute } from '@tanstack/react-router';
+import { TeamPage } from '@/components/team-page';
+export const Route=createFileRoute('/team')({head:()=>({meta:[{title:'Team — TaskPilot'},{name:'description',content:'Manage team skills, availability, and planned capacity.'},{property:'og:title',content:'Team — TaskPilot'},{property:'og:description',content:'Manage team skills, availability, and planned capacity.'},{property:'og:type',content:'website'},{name:'twitter:card',content:'summary_large_image'}]}),component:TeamPage});
