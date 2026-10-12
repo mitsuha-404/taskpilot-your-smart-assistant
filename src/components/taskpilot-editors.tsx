@@ -7,7 +7,7 @@ import { localDate, priority, recommend, SKILLS, type Task, type Member, type We
 import { Avatar } from './taskpilot-shell';
 export function TaskEditor({task,onClose}:{task:Task|null;onClose:()=>void}) {
  const {tasks,members,weights,saveTask,deleteTask}=useTaskPilot();
- const [draft,setDraft]=useState<Task>(task??{id:'',title:'',description:'',skill:SKILLS[0],deadline:localDate(),effort:4,importance:'Medium',status:'To do',assignee:''});
+ const [draft,setDraft]=useState<Task>(task??{id:'',title:'',description:'',skill:SKILLS[0] ?? 'Frontend',deadline:localDate(),effort:4,importance:'Medium',status:'To do',assignee:''});
  const [error,setError]=useState(''),[confirmDelete,setConfirmDelete]=useState(false);
  const p=priority(draft,weights), candidates=recommend(draft,members,tasks),suggestion=candidates[0];
  const update=<K extends keyof Task>(key:K,value:Task[K])=>setDraft(d=>({...d,[key]:value}));
