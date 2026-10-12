@@ -83,7 +83,7 @@ export type Analysis = ReturnType<typeof analyse>;
 export function draftSubtasks(task: Task, members: Member[], tasks: Task[]): Task[] {
   const total = hours(task.effort) || 1;
   const round = (n: number) => Math.max(0.5, Math.round(n * 2) / 2);
-  const lower = LEVELS[Math.max(0, rank(task.difficulty) - 2)];
+  const lower: Level = LEVELS[Math.max(0, rank(task.difficulty) - 2)] ?? 'Beginner';
   const pick = (difficulty: Level, effort: number, exclude: string[] = []) => members
     .filter(m => m.available && !exclude.includes(m.id) && isQualified(m, task.skill, difficulty))
     .map(m => ({ m, left: m.capacity - workload(m.id, tasks, task.id) - effort })).filter(x => x.left >= 0)
